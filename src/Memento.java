@@ -4,7 +4,7 @@ import java.util.Arrays;
 /**
  * Alex Chheng and Chloe
  * 10/24/2019
- * Input:
+ * Input: No input require
  * Output:
  */
 //http://web.csulb.edu/~mopkins/cecs277/projectmemento.shtml
