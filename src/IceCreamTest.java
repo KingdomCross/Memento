@@ -1,3 +1,6 @@
 public class IceCreamTest {
-    AdvancedIceCreamCone iceCreamCone = new AdvancedIceCreamCone(2, "Vanilla", "Waffle");
+    public static void main(String [] args) {
+        AdvancedIceCreamCone iceCreamCone = new AdvancedIceCreamCone(2, "Vanilla", "Waffle");
+        CareTaker careTaker = new CareTaker();
+    }
 }
