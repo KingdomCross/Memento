@@ -7,13 +7,13 @@
 //The logic to read/write a file needs to be put in the Caretaker class.
 import java.util.*;
 public class CareTaker {
-    private List<Memento> mlist = new ArrayList<Memento>();
+    private List<IceCreamMemento> mlist = new ArrayList<IceCreamMemento>();
 
-    public void add(Memento m) {
+    public void add(IceCreamMemento m) {
         mlist.add(m);
     }
 
-    public Memento get(int index) {
+    public IceCreamMemento get(int index) {
         return mlist.get(index);
     }
 }
