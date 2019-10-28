@@ -14,8 +14,6 @@ public class AdvancedIceCreamConeTester {
         System.out.println("Cone 2 is: " + ICC2);
         String [] toppings={"sprinkles","chocolate chips","marshmallows",
                 "oreo cookies","nuts","cherry"};
-        String [] toppings={"sprinkles","chocolate chips","marshmallows",
-                "oreo cookies","nuts","cherry"};
         //for (int i=0;i<toppings.length;i++)
         //  ICC.addToppings(toppings[i]);
         ICC.addToppings(Arrays.asList(toppings));
