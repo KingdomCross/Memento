@@ -16,4 +16,8 @@ public class IceCreamCaretaker {
     public IceCreamMemento getMemento(int index) {
         return mlist.get(index);
     }
+
+    public IceCreamMemento getMemento(String vanilla) {
+        return null;
+    }
 }
