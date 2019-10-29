@@ -17,6 +17,11 @@ public class IceCreamMemento {
     //The major difference here will be that the Memento objects themselves are being stored to a file. Do not create/store an ArrayList as shown in the examples. All of the Memento objects will be stored to the same file
     //Again, you are saving the state of the Ice Cream Cone to the Memento object, not the Ice Cream Cone itself.
 
+
+    public IceCreamMemento() {
+
+    }
+
     public IceCreamMemento(int numberOfScoops, String flavor, String typeOfCone, ArrayList<String> toppings) {
         this.numberOfScoops = numberOfScoops;
         this.flavor = flavor;
