@@ -1,18 +1,15 @@
-/**
- * Alex Chheng and Chloe
- * 10/24/2019
- * Input:
- * Output:
- */
 /* This class is used to model the properties and behaviors of an ice cream cone.
    There are currently restriction on the construction of the cone: only one
-   flavor of ice cream is allowed. */
+   flavor of ice cream is allowed and up to five toppings. You can only add scoops, you
+   cannot remove them. */
+import java.io.Serializable;
 import java.util.*;
-public class AdvancedIceCreamCone {
+public class AdvancedIceCreamCone  {
     private int numberOfScoops;
     private String flavor;
     private String typeOfCone;
     private ArrayList<String> toppings = new ArrayList<String>();
+
 
 
     //the default constructor creates a one scoop, vanilla ice cream cone using the regular type of cone and no toppings
@@ -52,11 +49,14 @@ public class AdvancedIceCreamCone {
     public void setTypeOfCone(String cone) {
         typeOfCone=cone;
     }
-    //this method allows you to add  toppings
+    //this method allows you to add toppings from an ArrayList
+    public void addToppings(List<String> top) {
+        toppings.addAll(top);
+    }
+    //this method allows you to add one topping
     public void addToppings(String top) {
         toppings.add(top);
     }
-
     //this method returns a String with a list of the toppings
     public ArrayList<String> getToppings () {
         return toppings;
@@ -66,6 +66,20 @@ public class AdvancedIceCreamCone {
     public String toString() {
         return ("The number of scoops is " + numberOfScoops + ". The flavor is " +
                 flavor + ". And the type of cone is " + typeOfCone + " and the toppings are: " + getToppings());
+    }
+    public IceCreamMemento save() {
+        System.out.println("Originator: Saving to Memento.");
+        return new IceCreamMemento(this);
+    }
+    public AdvancedIceCreamCone restore(IceCreamMemento m) {
+        AdvancedIceCreamCone mc = m.getSavedCone();
+        System.out.println("saved cone: " + mc);
+        numberOfScoops=mc.getNumberOfScoops();
+        flavor=mc.getFlavor();
+        typeOfCone=mc.getTypeOfCone();
+        toppings = mc.getToppings();
+        System.out.println("Originator: State after restoring from Memento: " + this);
+        return mc;
     }
 
 }

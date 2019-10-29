@@ -8,7 +8,7 @@ import java.util.Arrays;
  * Output: String
  */
 //http://web.csulb.edu/~mopkins/cecs277/projectmemento.shtml
-public class Memento {
+public class IceCreamMemento {
     private int numberOfScoops; //This ice cream cone can have unlimited scoops of ice cream -- but only one flavor
     private String flavor; //The available flavors are Chocolate, Vanilla, Strawberry and Mimi's Minty
     private String typeOfCone; //There is a choice of three cone types: regular, sugar or waffle
@@ -17,7 +17,7 @@ public class Memento {
     //The major difference here will be that the Memento objects themselves are being stored to a file. Do not create/store an ArrayList as shown in the examples. All of the Memento objects will be stored to the same file
     //Again, you are saving the state of the Ice Cream Cone to the Memento object, not the Ice Cream Cone itself.
 
-    public Memento(int numberOfScoops, String flavor, String typeOfCone, ArrayList<String> toppings) {
+    public IceCreamMemento(int numberOfScoops, String flavor, String typeOfCone, ArrayList<String> toppings) {
         this.numberOfScoops = numberOfScoops;
         this.flavor = flavor;
         this.typeOfCone = typeOfCone;
@@ -48,5 +48,9 @@ public class Memento {
                 ", typeOfCone='" + typeOfCone + '\'' +
                 ", toppings=" + toppings +
                 '}';
+    }
+
+    public AdvancedIceCreamCone getSavedCone() {
+        return null;
     }
 }
