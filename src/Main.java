@@ -15,19 +15,42 @@ public class Main {
 			switch(input) {
 			case "Y":
 				// Create Ice Cream Object and set the values using methods from the class
-				System.out.println("Enter an Ice Cream Flavor: ");
+				System.out.println("Select an Ice Cream Flavor: ");
 				System.out.println("A) Vanilla");
 				System.out.println("B) Chocolate");
 				System.out.println("C) Strawberry");
 				String Flavor = in.next();
-				switch(Flavor) {
+				Flavor.toUpperCase();
+				switch(Flavor) 
+				{
 				case "A":
-					
-					
+					//Add Ice Cream Flavor and Save to momento here
+					System.out.println("Vanilla flavor selected!");
+					break;
+				case "B":
+					//Add Ice Cream Flavor and Save to momento here
+					System.out.println("Chocolate flavor selected!");
+					break;
+				case "C":
+					//Add Ice Cream Flavor and Save to momento here
+					System.out.println("Strawberry flavor selected!");
+					break;
 				}
+				System.out.println("How many scoops: ");
+				int scoops = in.nextInt();
+				// put scoops into Ice Cream class and save to momento
+				String choice = in.next();
+				switch(choice.toUpperCase())
+				{
+				case "Y":
+					//display toppings
+				}
+				break;
+				
 				
 			}
-		}while(input != "Q");
+		}while(input != "N");
+			System.out.println("Thanks for stopping by :)");
 	}
 
 }
