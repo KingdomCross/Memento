@@ -22,11 +22,10 @@ public class IceCreamMemento {
 
     }
 
-    public IceCreamMemento(int numberOfScoops, String flavor, String typeOfCone, ArrayList<String> toppings) {
+    public IceCreamMemento(int numberOfScoops, String flavor, String typeOfCone) {
         this.numberOfScoops = numberOfScoops;
         this.flavor = flavor;
         this.typeOfCone = typeOfCone;
-        this.toppings = toppings;
     }
 
     public int getNumberOfScoops() {

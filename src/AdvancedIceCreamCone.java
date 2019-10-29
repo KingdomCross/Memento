@@ -69,7 +69,7 @@ public class AdvancedIceCreamCone  {
     }
     public IceCreamMemento save() {
         System.out.println("Originator: Saving to Memento.");
-        return new IceCreamMemento(this.numberOfScoops, this.flavor, this.typeOfCone,this.top);
+        return new IceCreamMemento(this.numberOfScoops, this.flavor, this.typeOfCone);
     }
     public AdvancedIceCreamCone restore(IceCreamMemento m) {
         AdvancedIceCreamCone mc = m.getSavedCone();
