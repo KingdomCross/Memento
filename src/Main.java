@@ -44,6 +44,29 @@ public class Main {
 				{
 				case "Y":
 					//display toppings
+					System.out.println("A) Topping 1");
+					System.out.println("B) Topping 2");
+					System.out.println("C) Topping 3");
+					System.out.println("D) Topping 4");
+					String Topping = in.next();
+					switch(Topping.toUpperCase())
+					{
+					case "A":
+						//Add Topping and Save to momento here
+						System.out.println("Topping 1 selected!");
+						break;
+					case "B":
+						//Add Topping and Save to momento here
+						System.out.println("Topping 2 selected!");
+						break;
+					case "C":
+						//Add Topping and Save to momento here
+						System.out.println("Topping 3 selected!");
+						break;
+					case "D":
+						//Add Topping and Save to momento here
+						System.out.println("Topping 4 selected!");
+					}
 				}
 				break;
 				
