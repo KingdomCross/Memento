@@ -4,7 +4,7 @@
    cannot remove them. */
 import java.io.Serializable;
 import java.util.*;
-public class AdvancedIceCreamCone  {
+public class AdvancedIceCreamCone implements Serializable {
     private int numberOfScoops;
     private String flavor;
     private String typeOfCone;
@@ -25,38 +25,73 @@ public class AdvancedIceCreamCone  {
         flavor=flv;
         typeOfCone=cone;
     }
+    /**
+     * 
+     * @return returns the number of scoops 
+     */
     //this method returns the number of scoops in the cone
     public int getNumberOfScoops () {
         return numberOfScoops;
     }
+    /**
+     * 
+     * @return returns the flavor of Ice Cream
+     */
     //this method returns the ice cream flavor
     public String getFlavor() {
         return flavor;
     }
+    /**
+     * 
+     * @return return the type of cone
+     */
     //this method returns the type of cone
     public String getTypeOfCone() {
         return typeOfCone;
     }
+    /**
+     *  Adds scoop to order
+     */
     //this method allows you to add one scoop of ice cream at a time
     public void addScoop() {
         numberOfScoops=numberOfScoops+1;
     }
+    /**
+     * setsFlavor of IceCream
+     * @param flv name of Flavor
+     */
     //this method allows you to change the ice cream flavor
     public void setFlavor(String flv) {
         flavor=flv;
     }
+    /**
+     * 
+     * @param cone name of cone
+     */
     //this method allows you to change the type of cone
     public void setTypeOfCone(String cone) {
         typeOfCone=cone;
     }
+    /**
+     * adds toppings to order
+     * @param top the list of toppings that are to be added
+     */
     //this method allows you to add toppings from an ArrayList
     public void addToppings(List<String> top) {
         toppings.addAll(top);
     }
+    /**
+     * adds a single topping
+     * @param top
+     */
     //this method allows you to add one topping
     public void addToppings(String top) {
         toppings.add(top);
     }
+    /**
+     * 
+     * @return returns a list of toppings
+     */
     //this method returns a String with a list of the toppings
     public ArrayList<String> getToppings () {
         return toppings;
