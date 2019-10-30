@@ -1,6 +1,4 @@
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
+
 import java.io.PrintWriter;
 public class Write {
 Write()
