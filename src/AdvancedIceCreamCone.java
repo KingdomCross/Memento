@@ -5,7 +5,11 @@
 import java.io.Serializable;
 import java.util.*;
 public class AdvancedIceCreamCone implements Serializable {
-    private int numberOfScoops;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int numberOfScoops;
     private String flavor;
     private String typeOfCone;
     private ArrayList<String> toppings = new ArrayList<String>();
@@ -104,7 +108,7 @@ public class AdvancedIceCreamCone implements Serializable {
     }
     public IceCreamMemento save() {
         System.out.println("Originator: Saving to Memento.");
-        return new IceCreamMemento(this.numberOfScoops, this.flavor, this.typeOfCone, toppings);
+        return  null;//new IceCreamMemento(this.numberOfScoops, this.flavor, this.typeOfCone, toppings);
     }
     public AdvancedIceCreamCone restore(IceCreamMemento m) {
         AdvancedIceCreamCone mc = m.getSavedCone();
