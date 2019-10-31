@@ -1,4 +1,5 @@
-/* This class is used to model the properties and behaviors of an ice cream cone.
+/* 	Alex Chheng Chloe Culver
+ * This class is used to model the properties and behaviors of an ice cream cone.
    There are currently restriction on the construction of the cone: only one
    flavor of ice cream is allowed and up to five toppings. You can only add scoops, you
    cannot remove them. */

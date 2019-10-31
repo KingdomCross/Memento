@@ -2,7 +2,7 @@ import java.util.*;
 public class IceCreamConeTester {
     /* This class is used to test the functionality of the IceCreamCone class */
     public static void main(String [] args) {
-        IceCreamCaretaker caretaker = new IceCreamCaretaker("abc");
+        IceCreamCaretaker caretaker = new IceCreamCaretaker();
         AdvancedIceCreamCone ICC = new AdvancedIceCreamCone();
         System.out.println("The new cone is: " + ICC);
         ICC.addScoop();
@@ -23,7 +23,7 @@ public class IceCreamConeTester {
                 "oreo cookies","nuts","cherry"};
         ICC.addToppings(Arrays.asList(toppings));
         System.out.println("Cone 2 is: " + ICC);
-        ICC.restore( caretaker.getMemento("vanilla") );
+        ICC.restore(caretaker.getMemento("vanilla") );
         System.out.println("The user choice restored to: " + ICC);
     }
 }

@@ -15,17 +15,20 @@ import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.*;
+
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 public class IceCreamCaretaker {
-    
+	 ArrayList<IceCreamMemento> woi=new ArrayList<>();
     /**
      * 
      * @param m is the momento being added to the caretaker
      */
     public void addMemento(IceCreamMemento m) {
         try {
+        	woi.add(m);
         	FileOutputStream f = new FileOutputStream(new File("IceCream.txt"));
         	ObjectOutputStream o = new ObjectOutputStream(f);
-        	o.writeObject(m);
+        	o.writeObject(woi);
         	o.close();
         	f.close();
 
@@ -43,7 +46,7 @@ public class IceCreamCaretaker {
      */
     public IceCreamMemento getMemento() {
     	IceCreamMemento b = new IceCreamMemento();
-    	ObjectInputStream in;
+    	ObjectInputStream in = null;
 		try {
 			in = new ObjectInputStream(  new FileInputStream("IceCream.txt"));
 			 b = (IceCreamMemento) in.readObject();
@@ -54,6 +57,19 @@ public class IceCreamCaretaker {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		finally {
+		    if (in != null) { 
+		        System.out.println("Closing PrintWriter");
+		        try {
+					in.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+		    } else { 
+		        System.out.println("PrintWriter not open");
+		    } 
+		} 
 		return b;
       	
     }
@@ -64,27 +80,64 @@ public class IceCreamCaretaker {
      * @return
      */
     public IceCreamMemento getMemento(String vanilla) {
-    	ObjectInputStream in;
+    	ObjectInputStream in = null;
     	IceCreamMemento object = new IceCreamMemento();
 		try {
 			
 			in = new ObjectInputStream( new FileInputStream("IceCream.txt"));
-		    for (;;)
-		    {
-		       object = (IceCreamMemento) in.readObject();
-		        if(vanilla.compareTo(object.getFlavor()) ==0) {
-		        	 IceCreamMemento NewCone = (IceCreamMemento) in.readObject();
-		        	object = NewCone;
-		        }
-		        // ...
-		    }
+//		    IceCreamMemento obj = null;
+//		    while ((obj = (IceCreamMemento) in.readObject()) != null) {
+//		    	System.out.println( obj.toString());
+//		        	if(vanilla.compareTo(((IceCreamMemento) obj).getFlavor()) ==0) {
+//			        	 IceCreamMemento NewCone = (IceCreamMemento) in.readObject();
+//			        	 System.out.println("Cone Found: /n "+ NewCone.toString());
+//			        	 object = NewCone;
+//			        	 
+//		        }
+//		      }
+			 try {
+			        FileInputStream fis=new FileInputStream("IceCream.txt");
+			        ObjectInputStream ois=new ObjectInputStream(fis);
+			        IceCreamMemento wo=null;
+			        Array[] woj=new Array[5];
+
+			        ArrayList<IceCreamMemento> woi=new ArrayList<>();
+			        woi=(ArrayList<IceCreamMemento>)ois.readObject();
+
+			        for(int i=0;i<woi.size();i++){
+			            woi.get(i).toString();
+			            if(vanilla.compareTo(((IceCreamMemento) woi.get(i)).getFlavor()) ==0) {
+				        	 IceCreamMemento NewCone = (IceCreamMemento) in.readObject();
+				        	 System.out.println("Cone Found: /n "+ NewCone.toString());
+				        	 object = NewCone;
+				        	 
+			        }
+			        }
+		     
+		    
 			
-		} catch (FileNotFoundException e) {
+		} 
+			 finally {
+				    if (in != null) { 
+				        System.out.println("Closing PrintWriter");
+				        in.close(); 
+				    } else { 
+				        System.out.println("PrintWriter not open");
+				    } 
+			 }
+		}
+				    catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (EOFException e) {
 			// TODO Auto-generated catch block
-			
+			try {
+				in.close();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			System.out.println("File ended");
 		}
 		catch(NullPointerException O) {
 			System.out.println("Object does not exist");
@@ -97,7 +150,8 @@ public class IceCreamCaretaker {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	
 		return object;
     }
-
+		
 }

@@ -101,7 +101,7 @@ public class IceCreamMemento implements Serializable {
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			
+			System.out.println("Weird mess up: ");
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
