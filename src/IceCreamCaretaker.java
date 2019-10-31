@@ -41,41 +41,6 @@ public class IceCreamCaretaker {
 
     /**
      * 
-     * @param index
-     * @return returns momento at that index
-     */
-//    public IceCreamMemento getMemento() {
-//    	IceCreamMemento b = new IceCreamMemento();
-//    	ObjectInputStream in = null;
-//		try {
-//			in = new ObjectInputStream(  new FileInputStream("IceCream.txt"));
-//			 b = (IceCreamMemento) in.readObject();
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		finally {
-//		    if (in != null) { 
-//		        System.out.println("Closing PrintWriter");
-//		        try {
-//					in.close();
-//				} catch (IOException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				} 
-//		    } else { 
-//		        System.out.println("PrintWriter not open");
-//		    } 
-//		} 
-//		return b;
-//      	
-//    }
-
-    /**
-     * 
      * @param vanilla
      * @return
      */
@@ -100,14 +65,12 @@ public class IceCreamCaretaker {
 				        	 return NewCone;
 				        	 
 			        }
-			        }
-		     
-		    
+			        }	    
 			
 		} 
 			 finally {
 				    if (in != null) { 
-				        System.out.println("Closing PrintWriter");
+				       
 				        in.close(); 
 				    } else { 
 				        System.out.println("PrintWriter not open");

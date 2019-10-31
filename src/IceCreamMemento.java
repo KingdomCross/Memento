@@ -98,28 +98,24 @@ public class IceCreamMemento implements Serializable {
 			in = new ObjectInputStream( new FileInputStream("IceCream.txt"));
 
 			 try {
-			        FileInputStream fis=new FileInputStream("IceCream.txt");
-			        ObjectInputStream ois=new ObjectInputStream(fis);
-			        ArrayList<IceCreamMemento> woi=new ArrayList<>();
-			        woi=(ArrayList<IceCreamMemento>)ois.readObject();
 
+			        ArrayList<IceCreamMemento> woi=new ArrayList<>();
+			        woi=(ArrayList<IceCreamMemento>)in.readObject();
 			        for(int i=0;i<woi.size();i++){
 			            woi.get(i).toString();
 			            if(this.flavor.compareTo(((IceCreamMemento) woi.get(i)).getFlavor()) ==0) {
 				        	 IceCreamMemento NewCone = (IceCreamMemento) woi.get(i);
 				        	 System.out.println("Cone Found: /n "+ NewCone.toString());
-				        	 return NewCone;
-				        	 
+				        	 return NewCone;		        	 
 			        }
 			        }
-		     
-		    
-			
+	
 		} 
 			 finally {
 				    if (in != null) { 
-				        System.out.println("Closing PrintWriter");
+
 				        in.close(); 
+				     
 				    } else { 
 				        System.out.println("PrintWriter not open");
 				    } 
