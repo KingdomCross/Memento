@@ -13,7 +13,9 @@ public class Main
 		
 		// TODO Auto-generated method stub
 
-			
+			/**
+			 * This class is used to Test Reading and Writing Objects to a file
+			 */
 	        AdvancedIceCreamCone ICTest = new AdvancedIceCreamCone(3, "Chocolate", "Waffle");
 	        try {
 	        	FileOutputStream f = new FileOutputStream(new File("IceCream.txt"));
@@ -29,21 +31,24 @@ public class Main
 	        	System.out.println("Bro this don't work");
 	        	ex.printStackTrace();
 	        }
+	        finally{
+	        	System.exit(0);
+	        	}
 	        
 	        /**
 	         * This portion of code Reads out the file contents
 	         */
-//	        try {
-//			FileInputStream fi = new FileInputStream(new File("IceCream.txt"));
-//			ObjectInputStream oi = new ObjectInputStream(fi);
-//			System.out.println(ICTest.toString());
-//			oi.close();
-//			fi.close();
-//	        }
-//	        catch(Exception e) {
-//	        	System.out.println("Bro this don't work");
-//	        	e.printStackTrace();
-//	        }
+	        try {
+			FileInputStream fi = new FileInputStream(new File("IceCream.txt"));
+			ObjectInputStream oi = new ObjectInputStream(fi);
+			System.out.println(ICTest.toString());
+			oi.close();
+			fi.close();
+	        }
+	        catch(Exception e) {
+	        	System.out.println("Bro this don't work");
+	        	e.printStackTrace();
+	        }
 	        
 
 	        

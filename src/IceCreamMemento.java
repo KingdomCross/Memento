@@ -1,10 +1,15 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 /**
  * Alex Chheng and Chloe
  * 10/24/2019
@@ -12,8 +17,12 @@ import java.io.ObjectOutputStream;
  * Output: String
  */
 //http://web.csulb.edu/~mopkins/cecs277/projectmemento.shtml
-public class IceCreamMemento {
-    private int numberOfScoops; //This ice cream cone can have unlimited scoops of ice cream -- but only one flavor
+public class IceCreamMemento implements Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int numberOfScoops; //This ice cream cone can have unlimited scoops of ice cream -- but only one flavor
     private String flavor; //The available flavors are Chocolate, Vanilla, Strawberry and Mimi's Minty
     private String typeOfCone; //There is a choice of three cone types: regular, sugar or waffle
     private ArrayList<String> toppings; //There is no limit to the number of toppings. You may use any toppings that you want.
@@ -25,25 +34,43 @@ public class IceCreamMemento {
     public IceCreamMemento() {
 
     }
-
-    public IceCreamMemento(int numberOfScoops, String flavor, String typeOfCone) {
+    /**
+     * 
+     * @param numberOfScoops number of scoops
+     * @param flavor 
+     * @param typeOfCone
+     */
+    public IceCreamMemento(int numberOfScoops, String flavor, String typeOfCone, ArrayList t) {
         this.numberOfScoops = numberOfScoops;
         this.flavor = flavor;
         this.typeOfCone = typeOfCone;
+        this.toppings = t;
     }
-
+    /**
+     * 
+     * @return returns the number of scoops
+     */
     public int getNumberOfScoops() {
         return numberOfScoops;
     }
-
+    /**
+     * 
+     * @return returns the Flavor of IceCream
+     */
     public String getFlavor() {
         return flavor;
     }
-
+    /**
+     * 
+     * @return returns type of cone
+     */
     public String getTypeOfCone() {
         return typeOfCone;
     }
-
+    /**
+     * 
+     * @return returns the toppings
+     */
     public ArrayList<String> getToppings() {
         return toppings;
     }
@@ -57,9 +84,35 @@ public class IceCreamMemento {
                 ", toppings=" + toppings +
                 '}';
     }
+    /**
+     * 
+     * @param o the AdvancedIceCreamCone Object
+     * @return
+     */
+    public IceCreamMemento getSavedCone()
+    {
+    	IceCreamMemento b = new IceCreamMemento();
+    	ObjectInputStream in;
+		try {
+			in = new ObjectInputStream(new FileInputStream("IceCream.txt"));
+			b = (IceCreamMemento) in.readObject();
+			in.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch(NullPointerException n) {
+			System.out.println("The file does not exist");
+		}
+    
 
-    public AdvancedIceCreamCone getSavedCone(AdvancedIceCreamCone o) {
-    	ArrayList<Object> cones = in.getObjArrayL();
-        return null;
+        return b;
     }
+
 }

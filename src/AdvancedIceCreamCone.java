@@ -108,17 +108,18 @@ public class AdvancedIceCreamCone implements Serializable {
     }
     public IceCreamMemento save() {
         System.out.println("Originator: Saving to Memento.");
-        return  null;//new IceCreamMemento(this.numberOfScoops, this.flavor, this.typeOfCone, toppings);
+        return  new IceCreamMemento(this.numberOfScoops, this.flavor, this.typeOfCone, toppings);
     }
     public AdvancedIceCreamCone restore(IceCreamMemento m) {
-        AdvancedIceCreamCone mc = m.getSavedCone();
+    	
+    	IceCreamMemento mc = m.getSavedCone();
         System.out.println("saved cone: " + mc);
         numberOfScoops=mc.getNumberOfScoops();
         flavor = mc.getFlavor();
         typeOfCone=mc.getTypeOfCone();
         toppings = mc.getToppings();
         System.out.println("Originator: State after restoring from Memento: " + this);
-        return mc;
+        return this;
     }
 
 }
