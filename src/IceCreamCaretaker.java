@@ -44,35 +44,35 @@ public class IceCreamCaretaker {
      * @param index
      * @return returns momento at that index
      */
-    public IceCreamMemento getMemento() {
-    	IceCreamMemento b = new IceCreamMemento();
-    	ObjectInputStream in = null;
-		try {
-			in = new ObjectInputStream(  new FileInputStream("IceCream.txt"));
-			 b = (IceCreamMemento) in.readObject();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		finally {
-		    if (in != null) { 
-		        System.out.println("Closing PrintWriter");
-		        try {
-					in.close();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} 
-		    } else { 
-		        System.out.println("PrintWriter not open");
-		    } 
-		} 
-		return b;
-      	
-    }
+//    public IceCreamMemento getMemento() {
+//    	IceCreamMemento b = new IceCreamMemento();
+//    	ObjectInputStream in = null;
+//		try {
+//			in = new ObjectInputStream(  new FileInputStream("IceCream.txt"));
+//			 b = (IceCreamMemento) in.readObject();
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		finally {
+//		    if (in != null) { 
+//		        System.out.println("Closing PrintWriter");
+//		        try {
+//					in.close();
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				} 
+//		    } else { 
+//		        System.out.println("PrintWriter not open");
+//		    } 
+//		} 
+//		return b;
+//      	
+//    }
 
     /**
      * 
@@ -85,31 +85,19 @@ public class IceCreamCaretaker {
 		try {
 			
 			in = new ObjectInputStream( new FileInputStream("IceCream.txt"));
-//		    IceCreamMemento obj = null;
-//		    while ((obj = (IceCreamMemento) in.readObject()) != null) {
-//		    	System.out.println( obj.toString());
-//		        	if(vanilla.compareTo(((IceCreamMemento) obj).getFlavor()) ==0) {
-//			        	 IceCreamMemento NewCone = (IceCreamMemento) in.readObject();
-//			        	 System.out.println("Cone Found: /n "+ NewCone.toString());
-//			        	 object = NewCone;
-//			        	 
-//		        }
-//		      }
+
 			 try {
 			        FileInputStream fis=new FileInputStream("IceCream.txt");
 			        ObjectInputStream ois=new ObjectInputStream(fis);
-			        IceCreamMemento wo=null;
-			        Array[] woj=new Array[5];
-
 			        ArrayList<IceCreamMemento> woi=new ArrayList<>();
 			        woi=(ArrayList<IceCreamMemento>)ois.readObject();
 
 			        for(int i=0;i<woi.size();i++){
 			            woi.get(i).toString();
 			            if(vanilla.compareTo(((IceCreamMemento) woi.get(i)).getFlavor()) ==0) {
-				        	 IceCreamMemento NewCone = (IceCreamMemento) in.readObject();
+				        	 IceCreamMemento NewCone = (IceCreamMemento) woi.get(i);
 				        	 System.out.println("Cone Found: /n "+ NewCone.toString());
-				        	 object = NewCone;
+				        	 return NewCone;
 				        	 
 			        }
 			        }

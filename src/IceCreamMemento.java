@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.io.BufferedReader;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -90,28 +91,67 @@ public class IceCreamMemento implements Serializable {
      */
     public IceCreamMemento getSavedCone()
     {
-    	IceCreamMemento b = new IceCreamMemento();
-    	ObjectInputStream in;
+    	ObjectInputStream in = null;
+    	IceCreamMemento object = new IceCreamMemento();
 		try {
-			in = new ObjectInputStream(new FileInputStream("IceCream.txt"));
-			b = (IceCreamMemento) in.readObject();
-			in.close();
-		} catch (FileNotFoundException e) {
+			
+			in = new ObjectInputStream( new FileInputStream("IceCream.txt"));
+
+			 try {
+			        FileInputStream fis=new FileInputStream("IceCream.txt");
+			        ObjectInputStream ois=new ObjectInputStream(fis);
+			        ArrayList<IceCreamMemento> woi=new ArrayList<>();
+			        woi=(ArrayList<IceCreamMemento>)ois.readObject();
+
+			        for(int i=0;i<woi.size();i++){
+			            woi.get(i).toString();
+			            if(this.flavor.compareTo(((IceCreamMemento) woi.get(i)).getFlavor()) ==0) {
+				        	 IceCreamMemento NewCone = (IceCreamMemento) woi.get(i);
+				        	 System.out.println("Cone Found: /n "+ NewCone.toString());
+				        	 return NewCone;
+				        	 
+			        }
+			        }
+		     
+		    
+			
+		} 
+			 finally {
+				    if (in != null) { 
+				        System.out.println("Closing PrintWriter");
+				        in.close(); 
+				    } else { 
+				        System.out.println("PrintWriter not open");
+				    } 
+			 }
+		}
+				    catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (EOFException e) {
+			// TODO Auto-generated catch block
+			try {
+				in.close();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			System.out.println("File ended");
+		}
+		catch(NullPointerException O) {
+			System.out.println("Object does not exist");
+		}
+
+		catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			System.out.println("Weird mess up: ");
 			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch(NullPointerException n) {
-			System.out.println("The file does not exist");
 		}
-    
-
-        return b;
+	
+		return object;
     }
+
 
 }
