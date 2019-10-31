@@ -32,7 +32,7 @@ public class IceCreamMemento implements Serializable {
     //Again, you are saving the state of the Ice Cream Cone to the Memento object, not the Ice Cream Cone itself.
 
 
-    public IceCreamMemento() {
+    public IceCreamMemento() { //constructor
 
     }
     /**
@@ -41,7 +41,7 @@ public class IceCreamMemento implements Serializable {
      * @param flavor 
      * @param typeOfCone
      */
-    public IceCreamMemento(int numberOfScoops, String flavor, String typeOfCone, ArrayList t) {
+    public IceCreamMemento(int numberOfScoops, String flavor, String typeOfCone, ArrayList t) { //contructor
         this.numberOfScoops = numberOfScoops;
         this.flavor = flavor;
         this.typeOfCone = typeOfCone;
@@ -51,21 +51,21 @@ public class IceCreamMemento implements Serializable {
      * 
      * @return returns the number of scoops
      */
-    public int getNumberOfScoops() {
+    public int getNumberOfScoops() { //get scoops
         return numberOfScoops;
     }
     /**
      * 
      * @return returns the Flavor of IceCream
      */
-    public String getFlavor() {
+    public String getFlavor() { //get flavor
         return flavor;
     }
     /**
      * 
      * @return returns type of cone
      */
-    public String getTypeOfCone() {
+    public String getTypeOfCone() { //get cone
         return typeOfCone;
     }
     /**
@@ -77,7 +77,7 @@ public class IceCreamMemento implements Serializable {
     }
 
     @Override
-    public String toString() {
+    public String toString() { //output sctring
         return "Memento " +
                 "numberOfScoops=" + numberOfScoops +
                 ", flavor='" + flavor + '\'' +
@@ -89,15 +89,15 @@ public class IceCreamMemento implements Serializable {
      * @param o the AdvancedIceCreamCone Object
      * @return
      */
-    public IceCreamMemento getSavedCone()
+    public IceCreamMemento getSavedCone() //saved cone
     {
-    	ObjectInputStream in = null;
-    	IceCreamMemento object = new IceCreamMemento();
-		try {
+    	ObjectInputStream in = null; //default
+    	IceCreamMemento object = new IceCreamMemento(); //object
+		try { //error safe
 			
-			in = new ObjectInputStream( new FileInputStream("IceCream.txt"));
+			in = new ObjectInputStream( new FileInputStream("IceCream.txt")); //file input
 
-			 try {
+			 try { //error safe
 
 			        ArrayList<IceCreamMemento> woi=new ArrayList<>();
 			        woi=(ArrayList<IceCreamMemento>)in.readObject();
@@ -121,7 +121,7 @@ public class IceCreamMemento implements Serializable {
 				    } 
 			 }
 		}
-				    catch (FileNotFoundException e) {
+				    catch (FileNotFoundException e) { //if error found
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (EOFException e) {
@@ -132,7 +132,7 @@ public class IceCreamMemento implements Serializable {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			System.out.println("File ended");
+			System.out.println("File ended"); //output error
 		}
 		catch(NullPointerException O) {
 			System.out.println("Object does not exist");

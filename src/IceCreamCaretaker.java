@@ -1,8 +1,8 @@
 /**
- * Alex Chheng and Chloe
+ * Alex Chheng and Chloe Culver
  * 10/24/2019
- * Input:
- * Output:
+ * Input: Not require
+ * Output: Saving data
  */
 //The logic to read/write a file needs to be put in the Caretaker class.
 import java.io.EOFException;
@@ -16,7 +16,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.*;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+//import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 public class IceCreamCaretaker {
 	 ArrayList<IceCreamMemento> woi=new ArrayList<>();
     /**
@@ -29,8 +29,8 @@ public class IceCreamCaretaker {
         	FileOutputStream f = new FileOutputStream(new File("IceCream.txt"));
         	ObjectOutputStream o = new ObjectOutputStream(f);
         	o.writeObject(woi);
-        	o.close();
-        	f.close();
+        	o.close(); //close files
+        	f.close(); //close files
 
         }
         catch(Exception ex) {
