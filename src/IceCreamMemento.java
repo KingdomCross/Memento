@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 /**
  * Alex Chheng and Chloe
  * 10/24/2019
@@ -54,7 +58,8 @@ public class IceCreamMemento {
                 '}';
     }
 
-    public AdvancedIceCreamCone getSavedCone() {
+    public AdvancedIceCreamCone getSavedCone(AdvancedIceCreamCone o) {
+    	ArrayList<Object> cones = in.getObjArrayL();
         return null;
     }
 }

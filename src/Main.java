@@ -22,7 +22,6 @@ public class Main
 		    	o.close();
 		    	f.close();
 		    	ObjectInputStream in = new ObjectInputStream(  new FileInputStream("IceCream.txt"));
-
 		    	AdvancedIceCreamCone b = (AdvancedIceCreamCone) in.readObject();
 		    	System.out.println(b.toString());
 	        }
