@@ -77,12 +77,11 @@ public class IceCreamMemento implements Serializable {
 
     @Override
     public String toString() {
-        return "Memento{" +
+        return "Memento " +
                 "numberOfScoops=" + numberOfScoops +
                 ", flavor='" + flavor + '\'' +
                 ", typeOfCone='" + typeOfCone + '\'' +
-                ", toppings=" + toppings +
-                '}';
+                ", toppings=" + toppings ;
     }
     /**
      * 

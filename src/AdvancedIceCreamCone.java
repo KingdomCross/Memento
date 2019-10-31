@@ -113,7 +113,7 @@ public class AdvancedIceCreamCone implements Serializable {
     public AdvancedIceCreamCone restore(IceCreamMemento m) {
     	
     	IceCreamMemento mc = m.getSavedCone();
-        System.out.println("saved cone: " + mc);
+        System.out.println("saved cone: " + mc.toString());
         numberOfScoops=mc.getNumberOfScoops();
         flavor = mc.getFlavor();
         typeOfCone=mc.getTypeOfCone();
