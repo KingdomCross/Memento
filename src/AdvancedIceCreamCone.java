@@ -2,7 +2,11 @@
  * This class is used to model the properties and behaviors of an ice cream cone.
    There are currently restriction on the construction of the cone: only one
    flavor of ice cream is allowed and up to five toppings. You can only add scoops, you
-   cannot remove them. */
+   cannot remove them.
+   input: Takes in the Attributes of an Ice Cream Cone being made
+   output: returns an AdvancedICC object
+    */
+
 import java.io.Serializable;
 import java.util.*;
 public class AdvancedIceCreamCone implements Serializable {
@@ -111,7 +115,12 @@ public class AdvancedIceCreamCone implements Serializable {
         System.out.println("Originator: Saving to Memento.");
         return  new IceCreamMemento(this.numberOfScoops, this.flavor, this.typeOfCone, toppings);
     }
-    public AdvancedIceCreamCone restore(IceCreamMemento m) {
+    /**
+     * REtores the AdvancedCone based on the attributes received from the getSavedCone method
+     * @param m the memento being used
+     * @return returns the last saved cone
+     */
+    public AdvancedIceCreamCone restore(IceCreamMemento m) {	
     	
     	IceCreamMemento mc = m.getSavedCone();
         System.out.println("saved cone: " + mc.toString());

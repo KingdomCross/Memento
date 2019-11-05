@@ -36,7 +36,7 @@ public class IceCreamMemento implements Serializable {
 
     }
     /**
-     * 
+     * Constructor for the Ice Cream Momento
      * @param numberOfScoops number of scoops
      * @param flavor 
      * @param typeOfCone
@@ -48,28 +48,28 @@ public class IceCreamMemento implements Serializable {
         this.toppings = t;
     }
     /**
-     * 
+     * Returns the number of scoops
      * @return returns the number of scoops
      */
     public int getNumberOfScoops() {
         return numberOfScoops;
     }
     /**
-     * 
+     * Returns the flavor of IceCream
      * @return returns the Flavor of IceCream
      */
     public String getFlavor() {
         return flavor;
     }
     /**
-     * 
+     * Returns the type of cone
      * @return returns type of cone
      */
     public String getTypeOfCone() {
         return typeOfCone;
     }
     /**
-     * 
+     * Returns the list of toppings
      * @return returns the toppings
      */
     public ArrayList<String> getToppings() {
@@ -85,7 +85,8 @@ public class IceCreamMemento implements Serializable {
                 ", toppings=" + toppings ;
     }
     /**
-     * 
+     * Searches file for savedCone matching the flavor of the object calling it
+     * Acts as a work around for the getMemento method in the CareTaker class
      * @param o the AdvancedIceCreamCone Object
      * @return
      */
@@ -98,14 +99,13 @@ public class IceCreamMemento implements Serializable {
 			in = new ObjectInputStream( new FileInputStream("IceCream.txt"));
 
 			 try {
-
-			        ArrayList<IceCreamMemento> woi=new ArrayList<>();
-			        woi=(ArrayList<IceCreamMemento>)in.readObject();
-			        for(int i=0;i<woi.size();i++){
-			            woi.get(i).toString();
-			            if(this.flavor.compareTo(((IceCreamMemento) woi.get(i)).getFlavor()) ==0) {
-				        	 IceCreamMemento NewCone = (IceCreamMemento) woi.get(i);
-				        	 System.out.println("Cone Found: /n "+ NewCone.toString());
+			       object = (IceCreamMemento) in.readObject();
+			        for(;;){
+			       
+			            if(this.flavor.compareTo(object.getFlavor()) ==0) 
+			            {
+				        	 IceCreamMemento NewCone = object;
+				        	// System.out.println("Cone Found: /n "+ NewCone.toString());
 				        	 return NewCone;		        	 
 			        }
 			        }
@@ -138,16 +138,16 @@ public class IceCreamMemento implements Serializable {
 			System.out.println("Object does not exist");
 		}
 
-		catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
+		catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+		catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return object;
     }
 
-
 }
+

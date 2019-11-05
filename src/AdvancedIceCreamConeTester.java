@@ -10,7 +10,7 @@ public class AdvancedIceCreamConeTester {
     public static void main(String [] args) {
 
         
-        // Chloe's added Code for file stuff
+        // This file tests the AdvancedIceCreamCone, the IceCreamMemento, and the IceCreamCareTaker
         IceCreamCaretaker caretaker = new IceCreamCaretaker();
     		AdvancedIceCreamCone ICC = new AdvancedIceCreamCone();
     		System.out.println("The new cone is: " + ICC);
@@ -32,7 +32,8 @@ public class AdvancedIceCreamConeTester {
     		  "oreo cookies","nuts","cherry"};
     		ICC.addToppings(Arrays.asList(toppings));
     		System.out.println("Cone 2 is: " + ICC);
-                    ICC.restore(caretaker.getMemento("vanilla"));
+                  ICC.restore(caretaker.getMemento("vanilla"));
+    		
                     System.out.println("The user choice restored to: " + ICC);
                     
                     
